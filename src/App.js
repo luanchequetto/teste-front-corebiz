@@ -4,13 +4,18 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Newsletter from "./components/Newsletter";
 import Vitrine from "./components/Vitrine";
+import {useState} from 'react'
 
 function App() {
+  console.log('tem' + localStorage.getItem('cartItens'))
+
+  const [cartItens, setCartItens] = useState(localStorage.getItem('cartItens'))
+  
   return (
     <div className="App">
-      <Header />
+      <Header cartItens={cartItens}/>
       <Banner />
-      <Vitrine />
+      <Vitrine setCartItens={setCartItens} cartItens={cartItens}/>
       <Newsletter />
       <Footer />
     </div>

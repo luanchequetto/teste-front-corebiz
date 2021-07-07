@@ -6,9 +6,10 @@ import searchIcon from '../../assets/search-icon.png';
 
 
 
-function Header() {
+function Header(props) {
 
-    var cartItens = 1
+    var cartItens = props.cartItens
+    localStorage.setItem('cartItens', cartItens)
     return (
         <div className='header'>
             <img alt='LOGO' src={logo} className='logo' />
@@ -21,7 +22,7 @@ function Header() {
                     <img alt='user' src={userIcon} />Minha Conta</div>
                 <div className='cart'>
                     <img alt='cart' src={cartIcon} />
-                    <div id='cart-counter'>{cartItens}</div>
+                    <div className='cart-counter'>{cartItens}</div>
                 </div>
             </div>
 
