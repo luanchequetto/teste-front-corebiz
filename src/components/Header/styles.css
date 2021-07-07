@@ -18,9 +18,12 @@
     width: max(71.8rem, 50%);
     height: 2.3rem;
     border-bottom: 1px solid #7A7A7A;
+
 }
 .search-box input{
     width: max(70rem, 90%);
+    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
 }
 .search-box img{
     width: 1.8rem;
@@ -36,4 +39,22 @@
     display: flex;
     align-items: center;
     margin-right: 0.5rem;
+    font-weight: 400;
+    font-family: 'Nunito', sans-serif;
+}
+.cart img{
+    width: 1.8rem;
+    height: 1.8rem;
+    margin: 0.2rem;
+}
+#cart-counter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.8rem;
+    height: 1.8rem;
+    color: #FFFFFF;
+    background: #F8475F;
+    border-radius: 1rem;
+
 }

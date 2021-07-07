@@ -2,10 +2,27 @@
     height: 30vh;
     display: flex;
     justify-content: space-between;
+    font-family: 'Nunito', sans-serif;
 }
 .banner-background{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     background: #000000;
     width: 50%;
+    color: #FFFFFF;
+}
+.banner-text{
+    width: 30rem;
+}
+.banner-text h1{
+    font-weight: 700;
+}
+.banner-text h2{
+    font-weight: 900;
+    font-size: 3rem;
+    line-height: 3rem;
 }
 .banner-img{
     width: 50%;

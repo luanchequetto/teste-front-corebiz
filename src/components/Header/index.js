@@ -7,20 +7,24 @@ import searchIcon from '../../assets/search-icon.png';
 
 
 function Header() {
+
+    var cartItens = 1
     return (
         <div className='header'>
-            <img alt='LOGO' src={logo} className='logo'/>
+            <img alt='LOGO' src={logo} className='logo' />
             <div className='search-box'>
                 <input placeholder='O que está procurando?' type='text' id='search-input' name='search-input'></input>
-                <img alt='search' src={searchIcon}/>
+                <img alt='search' src={searchIcon} />
             </div>
             <div className='infos'>
                 <div className='account'>
                     <img alt='user' src={userIcon} />Minha Conta</div>
                 <div className='cart'>
-                    <img alt='cart' src={cartIcon} />items</div>
+                    <img alt='cart' src={cartIcon} />
+                    <div id='cart-counter'>{cartItens}</div>
+                </div>
             </div>
-            
+
         </div>
     )
 }

@@ -1,3 +1,55 @@
 .footer{
-    height: 20vh;
+    background: #000000;
+    color: #FFFFFF;
+    height: 30vh;
+    padding: 2rem 0;
+    font-family: 'Nunito', sans-serif;
+    
+}
+.footer-content{
+    display: flex;
+    
+    justify-content: space-around;
+    margin: 2rem 10%;
+}
+.localization-div .line{
+    margin: 1rem 0;
+}
+.contact-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 1.5rem;
+}
+
+.contact-div button{
+    font-family: 'Nunito', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.5rem;
+    width: 20rem;
+    height: 3.8rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 2rem;
+}
+.contact-div button:hover{
+    transition: 0.5s;
+    background: #7A7A7A;
+}
+.contact-div button img{
+    margin: 1rem;
+}
+.logos-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.corebiz-logo, .vtex-logo{
+    margin: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    font-weight: 400;
+    font-size: 1rem;
 }
