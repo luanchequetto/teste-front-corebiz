@@ -1,0 +1,39 @@
+.header, .infos{
+    display: flex;
+}
+.header{
+    width: 100%;
+    height: 10vh;
+    align-items: center;
+    justify-content: space-around;
+}
+.logo{
+    width: 18rem;
+    height: 4rem;
+}
+.search-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: max(71.8rem, 50%);
+    height: 2.3rem;
+    border-bottom: 1px solid #7A7A7A;
+}
+.search-box input{
+    width: max(70rem, 90%);
+}
+.search-box img{
+    width: 1.8rem;
+    height: 1.8rem;
+}
+.infos{
+    width: 20rem;
+    display: flex;
+    height: 2.3rem;
+    justify-content: end;
+}
+.account, .cart{
+    display: flex;
+    align-items: center;
+    margin-right: 0.5rem;
+}

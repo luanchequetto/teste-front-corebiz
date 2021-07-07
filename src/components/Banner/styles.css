@@ -1,0 +1,12 @@
+.banner-content{
+    height: 30vh;
+    display: flex;
+    justify-content: space-between;
+}
+.banner-background{
+    background: #000000;
+    width: 50%;
+}
+.banner-img{
+    width: 50%;
+}
