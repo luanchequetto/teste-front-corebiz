@@ -15,13 +15,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    width: max(71.8rem, 50%);
+    width: max(71.8rem, 40%);
     height: 2.3rem;
     border-bottom: 1px solid #7A7A7A;
-
 }
 .search-box input{
-    width: max(70rem, 90%);
+    width: max(70rem, 80%);
     font-weight: 400;
     font-family: 'Nunito', sans-serif;
 }
@@ -37,9 +36,12 @@
 .account, .cart{
     display: flex;
     align-items: center;
-    margin-right: 0.5rem;
+    margin: 0 0.5rem;
     font-weight: 400;
     font-family: 'Nunito', sans-serif;
+}
+.account p{
+    font-size: 1.3rem;
 }
 .cart img{
     width: 1.8rem;
@@ -56,5 +58,40 @@
     background: #F8475F;
     border-radius: 1rem;
     font-size: 1.2rem;
+
+}
+
+@media (max-width: 600px){
+    .header{
+        margin: 0.5rem;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .infos{
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+    }
+    .account img{
+        content: url('../../assets/square-icon.png');
+    }
+    .account p{
+        display: none;
+
+    }
+    .search-box{
+        display: flex;
+        width: 95%;
+        margin-top: 0.5rem;
+    }
+    .search-box input{
+        width: 100%;
+        font-weight: 400;
+        font-family: 'Nunito', sans-serif;
+    }
 
 }
