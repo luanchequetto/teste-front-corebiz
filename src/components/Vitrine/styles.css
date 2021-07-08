@@ -4,7 +4,7 @@
     align-self: center;
     margin: 2.5rem 10%;
     width: 80%;
-    height: 60vh;
+    height: 45rem;
     display: flex;
     align-items: flex-start;
     font-family: 'Nunito', sans-serif;
@@ -74,12 +74,13 @@
    width: 50%;
    margin: 0.2rem;
    height: 3rem;
-   color: #FFFF;
+   color: transparent;
    border-radius: 1rem;
-   background-color: #FFFF; 
+   background-color: transparent; 
 }
 .product-content:hover .buy-button{
     background-color: black;
+    color: #FFFFFF;
 }
 
 .left-arrow, .right-arrow{
