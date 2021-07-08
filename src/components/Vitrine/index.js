@@ -5,10 +5,20 @@ import rightArrow from '../../assets/right-arrow.png'
 import starIcon from '../../assets/star-icon.png'
 import staredIcon from '../../assets/stared-icon.png'
 import axios from 'axios'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
+import {CartContext} from '../CartContext'
 
 function Vitrine(props) {
     const [products, setProducts] = useState([])
+
+    const cartItens = useContext(CartContext)
+    const add = () =>{
+        cartItens.handleAddtoCart(cartItens)
+        
+    }
+    console.log(products)
+        
+    
 
     useEffect(() => {
         axios.get('https://corebiz-test.herokuapp.com/api/v1/products')
@@ -19,7 +29,6 @@ function Vitrine(props) {
 
 
 
-    console.log(products)
 
     return (
         <div className='vitrine'>
@@ -31,7 +40,7 @@ function Vitrine(props) {
                 {products.map((item) => {
                     item.flag = Boolean(Math.round(Math.random()))
                     return (
-                        <Product key={item.productId} item={item} setCartItens={props.setCartItens} cartItens={props.cartItens} />
+                        <Product key={item.productId} item={item} add={add} cartItens={cartItens}/>
                     )
                 })}
                 <img alt='' src={rightArrow} className='right-arrow' />
@@ -44,10 +53,7 @@ function Vitrine(props) {
 
 function Product(props) {
 
-    function handleAddtoCart(){
-        props.setCartItens(props.cartItens+1)
-    }
-
+    
     function stringfyNumberAndReplaceDot(value) {
         let result = (value / 100).toFixed(2).toString().replace('.', ',')
         return result
@@ -62,11 +68,11 @@ function Product(props) {
             <div className='product-info'>
                 <p id='product-name'>{props.item.productName}</p>
                 <div>
-                    <img alt='' src={staredIcon} />
-                    <img alt='' src={starIcon} />
-                    <img alt='' src={starIcon} />
-                    <img alt='' src={starIcon} />
-                    <img alt='' src={starIcon} />
+                    <img alt='' src={props.item.stars >= 1 ? staredIcon : starIcon} />
+                    <img alt='' src={props.item.stars >= 2 ? staredIcon : starIcon} />
+                    <img alt='' src={props.item.stars >= 3 ? staredIcon : starIcon} />
+                    <img alt='' src={props.item.stars >= 4 ? staredIcon : starIcon} />
+                    <img alt='' src={props.item.stars >= 5 ? staredIcon : starIcon} />
                 </div>
                 <p id='product-price'>por R$ {stringfyNumberAndReplaceDot(props.item.price)}</p>
                 {props.item.installments[0] !== undefined ?
@@ -74,7 +80,8 @@ function Product(props) {
                     : <p id='product-parcelation'></p>}
 
 
-                <button className='buy-button' onClick={()=> handleAddtoCart()}>COMPRAR</button>
+                <button className='buy-button' onClick={props.add}>COMPRAR</button>
+                {console.log(props.cartItens)}
             </div>
         </div>
     )
