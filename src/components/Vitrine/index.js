@@ -15,11 +15,7 @@ function Vitrine(props) {
     const cartItens = useContext(CartContext)
     const add = () => {
         cartItens.handleAddtoCart(cartItens)
-
     }
-    console.log(products)
-
-
 
     useEffect(() => {
         axios.get('https://corebiz-test.herokuapp.com/api/v1/products')
@@ -28,20 +24,12 @@ function Vitrine(props) {
             })
     }, [])
 
-    const dataCarousel = products.map((item) => {
-        <Product key={item.productId} item={item} add={add} cartItens={cartItens} />
-    })
-
-
-
-
     return (
         <div className='vitrine'>
             <h2>Mais Vendidos</h2>
             <div className='line' />
             <div className='content'>
                 <img alt='' src={leftArrow} className='left-arrow' />
-
                 {products.map((item) => {
                     return (
                         <Product key={item.productId} item={item} add={add} cartItens={cartItens} />
@@ -78,8 +66,8 @@ function Product(props) {
                     <img alt='' src={props.item.stars >= 5 ? staredIcon : starIcon} />
                 </div>
                 {props.item.listPrice !== null ? <p id='product-listPrice'>de R$ {stringfyNumberAndReplaceDot(props.item.listPrice)}</p>
-                : <p id='product-listPrice'></p>}
-                
+                    : <p id='product-listPrice'></p>}
+
 
                 <p id='product-price'>por R$ {stringfyNumberAndReplaceDot(props.item.price)}</p>
 
@@ -89,7 +77,6 @@ function Product(props) {
 
 
                 <button className='buy-button' onClick={props.add}>COMPRAR</button>
-                {console.log(props.cartItens)}
             </div>
         </div>
     )

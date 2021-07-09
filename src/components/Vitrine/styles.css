@@ -30,7 +30,6 @@
 .product-content{
     display: flex;
     flex-direction: column;
-    height: 37rem;
     width: 20rem;
 
 }
