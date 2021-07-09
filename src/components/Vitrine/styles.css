@@ -4,7 +4,7 @@
     align-self: center;
     margin: 2.5rem 10%;
     width: 80%;
-    height: 45rem;
+    height: 40%;
     display: flex;
     align-items: flex-start;
     font-family: 'Nunito', sans-serif;
@@ -24,12 +24,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .product-content{
     display: flex;
     flex-direction: column;
-    height: 37rem;
     width: 20rem;
 
 }
@@ -69,6 +69,15 @@
     color: #7a7a7a;
     font-weight: 400;
 }
+#product-listPrice{
+    height: 2.2rem;
+    color: #7a7a7a;
+    font-weight: 400;
+}
+
+.product-content:hover #product-listPrice{
+    text-decoration: line-through;
+}
 
 .buy-button{
    width: 50%;
@@ -100,11 +109,14 @@
         flex-direction: column;
         align-self: center;
         width: 80%;
-        height: 45rem;
+        height: 20%;
         display: flex;
         align-items: flex-start;
         font-family: 'Nunito', sans-serif;
         text-align: center;
+    }
+    .left-arrow, .right-arrow{
+        display: none;
     }
 
 }

@@ -3,16 +3,18 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 15rem;
+    height: 10%;
     background-color: #F2F2F2;
     font-family: 'Nunito', sans-serif;
     width: 100%;
+    padding: 5%;
 }
 .newsletter h2{
     font-size: 2.5rem;
 }
 .newsletter-form form{
     display: flex;
+    flex-wrap: wrap;
 }
 .newsletter-form input{
     width: 28rem;
@@ -40,4 +42,18 @@
 }
 .newsletter-form button:hover{
     background: #333333;
+}
+
+@media (max-width: 600px){
+    .newsletter h2{
+        font-size: 2rem;
+    }
+    .newsletter-form form{
+        display: flex;
+        flex-direction: column;
+    }
+    .newsletter-form input, .newsletter-form button, .newsletter-submited button{
+        width: 90vw;
+    }
+    
 }
