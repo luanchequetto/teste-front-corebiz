@@ -8,7 +8,7 @@ import { CartContext } from '../CartContext';
 
 
 
-function Header(props) {
+function Header() {
 
     const context = useContext(CartContext)
     
@@ -21,7 +21,7 @@ function Header(props) {
             </div>
             <div className='infos'>
                 <div className='account'>
-                    <img alt='user' src={userIcon} />Minha Conta</div>
+                    <img alt='user' src={userIcon} /><p>Minha Conta</p></div>
                 <div className='cart'>
                     <img alt='cart' src={cartIcon} />
                     <div className='cart-counter'>{context.cartItens}</div>

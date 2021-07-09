@@ -27,3 +27,20 @@
 .banner-img{
     width: 50%;
 }
+@media (max-width: 600px){
+    .banner-content{
+        position: relative;
+    }
+    .banner-background{
+        position: absolute;
+        width: 100%;
+        height: 30vh;
+        background: rgba(0, 0, 0, 0.55)
+    }
+    .banner-img{
+        width: 100%;
+    }
+    .banner-text{
+        display: inline;
+    }
+}
