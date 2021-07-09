@@ -7,7 +7,6 @@ import staredIcon from '../../assets/stared-icon.png'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
 import { CartContext } from '../CartContext'
-import SimpleCarousel from 'simple-react-carousel';
 
 function Vitrine(props) {
     const [products, setProducts] = useState([])
