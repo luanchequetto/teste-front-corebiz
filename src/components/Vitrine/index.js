@@ -6,19 +6,20 @@ import starIcon from '../../assets/star-icon.png'
 import staredIcon from '../../assets/stared-icon.png'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
-import {CartContext} from '../CartContext'
+import { CartContext } from '../CartContext'
+import SimpleCarousel from 'simple-react-carousel';
 
 function Vitrine(props) {
     const [products, setProducts] = useState([])
 
     const cartItens = useContext(CartContext)
-    const add = () =>{
+    const add = () => {
         cartItens.handleAddtoCart(cartItens)
-        
+
     }
     console.log(products)
-        
-    
+
+
 
     useEffect(() => {
         axios.get('https://corebiz-test.herokuapp.com/api/v1/products')
@@ -27,6 +28,10 @@ function Vitrine(props) {
             })
     }, [])
 
+    const dataCarousel = products.map((item) => {
+        <Product key={item.productId} item={item} add={add} cartItens={cartItens} />
+    })
+
 
 
 
@@ -34,18 +39,16 @@ function Vitrine(props) {
         <div className='vitrine'>
             <h2>Mais Vendidos</h2>
             <div className='line' />
-
             <div className='content'>
                 <img alt='' src={leftArrow} className='left-arrow' />
+
                 {products.map((item) => {
-                    item.flag = Boolean(Math.round(Math.random()))
                     return (
-                        <Product key={item.productId} item={item} add={add} cartItens={cartItens}/>
+                        <Product key={item.productId} item={item} add={add} cartItens={cartItens} />
                     )
                 })}
                 <img alt='' src={rightArrow} className='right-arrow' />
             </div>
-
         </div>
 
     )
@@ -53,7 +56,7 @@ function Vitrine(props) {
 
 function Product(props) {
 
-    
+
     function stringfyNumberAndReplaceDot(value) {
         let result = (value / 100).toFixed(2).toString().replace('.', ',')
         return result
@@ -63,7 +66,7 @@ function Product(props) {
         <div className='product-content'>
             <div className='img-content'>
                 <img alt='produto' src={props.item.imageUrl} className='product-img' />
-                <img alt='produto' src={offerFlag} style={props.item.flag ? {} : { display: 'none' }} className='product-flag' />
+                <img alt='produto' src={offerFlag} style={props.item.listPrice !== null ? {} : { display: 'none' }} className='product-flag' />
             </div>
             <div className='product-info'>
                 <p id='product-name'>{props.item.productName}</p>
@@ -74,7 +77,12 @@ function Product(props) {
                     <img alt='' src={props.item.stars >= 4 ? staredIcon : starIcon} />
                     <img alt='' src={props.item.stars >= 5 ? staredIcon : starIcon} />
                 </div>
+                {props.item.listPrice !== null ? <p id='product-listPrice'>de R$ {stringfyNumberAndReplaceDot(props.item.listPrice)}</p>
+                : <p id='product-listPrice'></p>}
+                
+
                 <p id='product-price'>por R$ {stringfyNumberAndReplaceDot(props.item.price)}</p>
+
                 {props.item.installments[0] !== undefined ?
                     <p id='product-parcelation'>ou em {props.item.installments[0].quantity}x de R${stringfyNumberAndReplaceDot(props.item.installments[0].value)}</p>
                     : <p id='product-parcelation'></p>}

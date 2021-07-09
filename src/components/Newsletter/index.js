@@ -33,7 +33,7 @@ function Newsletter() {
         console.log('sub' + submited)
     }
     return (
-        <div>
+        <div className='newsletter'>
             {submited ? <NewsletterSubmited setSubmited={setSubmited} /> :
                 <NewsletterForm
                     handleValidation={handleValidation}
@@ -50,7 +50,7 @@ function Newsletter() {
 
 function NewsletterForm(props) {
     return (
-        <div className='newsletter'>
+        <div>
             <h2>Participe de nossas news com promoções e novidades!</h2>
             <div className='newsletter-form'>
                 <form onSubmit={props.handleValidation}>
