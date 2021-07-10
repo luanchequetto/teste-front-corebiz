@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Newsletter from "./components/Newsletter";
 import Vitrine from "./components/Vitrine";
-import { CartProvider } from '../src/components/CartContext'
+import { CartProvider } from '../src/contexts/CartContext'
 
 function App() {  
 

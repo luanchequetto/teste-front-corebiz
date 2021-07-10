@@ -50,6 +50,11 @@
     right: 0;
     position: absolute;
 }
+.product-flag-none{
+    right: 0;
+    position: absolute;
+    display: none;
+}
 
 .product-info{
     display: flex;

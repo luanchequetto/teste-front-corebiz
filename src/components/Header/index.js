@@ -4,7 +4,7 @@ import userIcon from '../../assets/user-icon.png';
 import cartIcon from '../../assets/cart-icon.png';
 import searchIcon from '../../assets/search-icon.png';
 import { useContext } from 'react';
-import { CartContext } from '../CartContext';
+import { CartContext } from '../../contexts/CartContext';
 
 
 

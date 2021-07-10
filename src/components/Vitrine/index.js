@@ -1,14 +1,12 @@
 import './styles.css'
-import offerFlag from '../../assets/offer-flag.png'
 import leftArrow from '../../assets/left-arrow.png'
 import rightArrow from '../../assets/right-arrow.png'
-import starIcon from '../../assets/star-icon.png'
-import staredIcon from '../../assets/stared-icon.png'
 import axios from 'axios'
 import { useState, useEffect, useContext } from 'react'
-import { CartContext } from '../CartContext'
+import { CartContext } from '../../contexts/CartContext'
+import Product from '../Product'
 
-function Vitrine(props) {
+function Vitrine() {
     const [products, setProducts] = useState([])
 
     const cartItens = useContext(CartContext)
@@ -31,7 +29,7 @@ function Vitrine(props) {
                 <img alt='' src={leftArrow} className='left-arrow' />
                 {products.map((item) => {
                     return (
-                        <Product key={item.productId} item={item} add={add} cartItens={cartItens} />
+                        <Product key={item.productId} item={item} add={add} />
                     )
                 })}
                 <img alt='' src={rightArrow} className='right-arrow' />
@@ -41,45 +39,6 @@ function Vitrine(props) {
     )
 }
 
-function Product(props) {
 
-
-    function stringfyNumberAndReplaceDot(value) {
-        let result = (value / 100).toFixed(2).toString().replace('.', ',')
-        return result
-    }
-
-    return (
-        <div className='product-content'>
-            <div className='img-content'>
-                <img alt='produto' src={props.item.imageUrl} className='product-img' />
-                <img alt='produto' src={offerFlag} style={props.item.listPrice !== null ? {} : { display: 'none' }} className='product-flag' />
-            </div>
-            <div className='product-info'>
-                <p id='product-name'>{props.item.productName}</p>
-                <div>
-                    <img alt='' src={props.item.stars >= 1 ? staredIcon : starIcon} />
-                    <img alt='' src={props.item.stars >= 2 ? staredIcon : starIcon} />
-                    <img alt='' src={props.item.stars >= 3 ? staredIcon : starIcon} />
-                    <img alt='' src={props.item.stars >= 4 ? staredIcon : starIcon} />
-                    <img alt='' src={props.item.stars >= 5 ? staredIcon : starIcon} />
-                </div>
-                {props.item.listPrice !== null ? <p id='product-listPrice'>de R$ {stringfyNumberAndReplaceDot(props.item.listPrice)}</p>
-                    : <p id='product-listPrice'></p>}
-
-
-                <p id='product-price'>por R$ {stringfyNumberAndReplaceDot(props.item.price)}</p>
-
-                {props.item.installments[0] !== undefined ?
-                    <p id='product-parcelation'>ou em {props.item.installments[0].quantity}x de R${stringfyNumberAndReplaceDot(props.item.installments[0].value)}</p>
-                    : <p id='product-parcelation'></p>}
-
-
-                <button className='buy-button' onClick={props.add}>COMPRAR</button>
-            </div>
-        </div>
-    )
-
-}
 
 export default Vitrine
