@@ -33,7 +33,6 @@ function Newsletter() {
         }
         setNameValided(validName)
         setEmailValided(validEmail)
-        console.log('sub' + submited)
     }
     return (
         <div className='newsletter'>
