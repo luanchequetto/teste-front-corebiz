@@ -53,6 +53,10 @@
     font-weight: 400;
     font-size: 1rem;
 }
+.footer-info{
+    display: flex;
+    justify-content: center;
+}
 @media (max-width: 600px){
     .footer-content{
         display: flex;

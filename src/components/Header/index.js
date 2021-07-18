@@ -3,7 +3,7 @@ import logo from '../../assets/logo-corebiz.png';
 import userIcon from '../../assets/user-icon.png';
 import cartIcon from '../../assets/cart-icon.png';
 import searchIcon from '../../assets/search-icon.png';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../../contexts/CartContext';
 
 
@@ -11,6 +11,7 @@ import { CartContext } from '../../contexts/CartContext';
 function Header() {
 
     const context = useContext(CartContext)
+    const [canCartView, setCanCartView] = useState(false)
     
     return (
         <div className='header'>
@@ -23,8 +24,12 @@ function Header() {
                 <div className='account'>
                     <img alt='user' src={userIcon} /><p>Minha Conta</p></div>
                 <div className='cart'>
-                    <img alt='cart' src={cartIcon} />
+                    <img alt='cart' src={cartIcon} onClick={()=> setCanCartView(!canCartView)} />
                     <div className='cart-counter'>{context.cartItens}</div>
+                    <div className={canCartView ? 'cart-view' : 'hidden-cart-view'}>
+                        <button>Ver Carrinho</button>
+                        <button onClick={context.handleClearCartItens}>Limpar Carrinho</button>
+                    </div>
                 </div>
             </div>
 

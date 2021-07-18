@@ -61,6 +61,17 @@
 
 }
 
+.cart-view{
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    margin-top: 3%;
+    overflow: auto;
+}
+.hidden-cart-view{
+    display: none;
+}
+
 @media (max-width: 600px){
     .header{
         margin: 0.5rem;

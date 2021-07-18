@@ -9,13 +9,15 @@ export const CartProvider = ({ children }) =>{
 
     const handleAddtoCart= () => {
         localStorage.setItem('cartItens', cartItens+1)
-        setCartItens(cartItens+1)
-        
-        
+        setCartItens(cartItens+1)    
+    }
+    const handleClearCartItens = ()=>{
+        localStorage.removeItem('cartItens')
+        setCartItens(0)
     }
 
     return(
-        <CartContext.Provider value={{cartItens, handleAddtoCart}} style={{display: 'flex', 'flex-wrap': 'wrap'}}>
+        <CartContext.Provider value={{cartItens, handleAddtoCart, handleClearCartItens}} style={{display: 'flex', 'flex-wrap': 'wrap'}}>
             {children}
         </CartContext.Provider>
     )

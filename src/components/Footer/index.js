@@ -32,6 +32,11 @@ function Footer() {
                     </div>
                 </div>
             </div>
+            <div className='footer-info'>
+                <p>Essa landing page foi desenvolvida durante o programa de treinamento Hiring Coders #2,
+                    suas informações, valores citados e dados são apenas para fins estudantis.
+                </p>
+            </div>
         </div>
     )
 }

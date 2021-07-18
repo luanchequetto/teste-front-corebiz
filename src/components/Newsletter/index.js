@@ -20,6 +20,7 @@ function Newsletter() {
         if (validName && validEmail) {
             try {
                 await axios.post('https://corebiz-test.herokuapp.com/api/v1/newsletter', { email, name })
+                localStorage.setItem('userInfos', JSON.stringify({name, email}))
                 setSubmited(true)
                 setName('')
                 setEmail('')
